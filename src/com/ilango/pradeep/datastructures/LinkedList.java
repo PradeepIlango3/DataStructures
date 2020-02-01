@@ -1,4 +1,4 @@
-import java.security.InvalidParameterException;
+package com.ilango.pradeep.datastructures;
 
 public class LinkedList<E> {
     Node<E> head;
@@ -133,7 +133,7 @@ public class LinkedList<E> {
 
     public static void main(String [] args) {
         LinkedList<Integer> list = new LinkedList<>();
-        System.out.println("LinkedList Addition");
+        System.out.println("com.ilango.pradeep.datastructures.LinkedList Addition");
         list.add(1);
         list.add(2);
         list.add(3);
@@ -144,15 +144,15 @@ public class LinkedList<E> {
         list.add(5, 100);
         // list.add(9, 1000); exception testing
         list.printList();
-        System.out.println("LinkedList Deletion");
+        System.out.println("com.ilango.pradeep.datastructures.LinkedList Deletion");
         list.delete(0);
         list.delete(5);
         list.delete(5);
         list.printList();
-        System.out.println("LinkedList Reverse");
+        System.out.println("com.ilango.pradeep.datastructures.LinkedList Reverse");
         list.reverse();
         list.printList();
-        System.out.println("LinkedList Reverse Print");
+        System.out.println("com.ilango.pradeep.datastructures.LinkedList Reverse Print");
         list.printReverse(list.head);
         System.out.println();
         list.printList();

@@ -1,3 +1,5 @@
+package com.ilango.pradeep.datastructures;
+
 import java.security.InvalidParameterException;
 
 public class Stack<E> {
@@ -7,7 +9,7 @@ public class Stack<E> {
 
     public Stack(int capacity) {
         if (capacity <= 0) {
-            throw new InvalidParameterException("Stack size should be greater than zero.");
+            throw new InvalidParameterException("com.ilango.pradeep.datastructures.Stack size should be greater than zero.");
         }
         data = new Object[capacity];
         this.capacity = capacity;
@@ -22,7 +24,7 @@ public class Stack<E> {
 
     public E pop() {
         if (size == 0) {
-            throw new InvalidParameterException("Stack size should be greater than zero.");
+            throw new InvalidParameterException("com.ilango.pradeep.datastructures.Stack size should be greater than zero.");
         }
         E data = (E) this.data[size-1];
         size--;
@@ -31,20 +33,27 @@ public class Stack<E> {
 
     public E peek() {
         if (size == 0) {
-            throw new IndexOutOfBoundsException("Stack size should be greater than zero.");
+            throw new IndexOutOfBoundsException("com.ilango.pradeep.datastructures.Stack size should be greater than zero.");
         }
         return (E) data[size-1];
     }
 
     public void print() {
         if (size == 0) {
-            System.out.println("Stack is Empty");
+            System.out.println("com.ilango.pradeep.datastructures.Stack is Empty");
         }
-        System.out.println("Stack:");
+        System.out.println("com.ilango.pradeep.datastructures.Stack:");
         for (int i=(size-1); i>=0; i--) {
             System.out.print(data[i] + " ");
         }
         System.out.println();
+    }
+
+    public boolean isEmpty() {
+        if (size == 0) {
+            return true;
+        }
+        return false;
     }
 
     public static void main(String [] args) {

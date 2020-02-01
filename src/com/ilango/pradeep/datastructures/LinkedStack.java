@@ -1,4 +1,4 @@
-
+package com.ilango.pradeep.datastructures;
 
 public class LinkedStack<E> {
     Node<E> top;
@@ -36,9 +36,9 @@ public class LinkedStack<E> {
 
     public void print() {
         if (top == null) {
-            System.out.println("Stack is Empty");
+            System.out.println("com.ilango.pradeep.datastructures.Stack is Empty");
         }
-        System.out.println("Stack: ");
+        System.out.println("com.ilango.pradeep.datastructures.Stack: ");
         Node<E> node = top;
         while (node!= null) {
             System.out.print(node.data + " ");

@@ -1,3 +1,5 @@
+package com.ilango.pradeep.datastructures;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,6 +17,14 @@ public class HelloWorld {
         list.remove(new Integer(2));
         list.add(0, 2);
         System.out.println(list.size());
+
+        int[] i = new int[5];
+        i[0] = 1;
+        System.out.println("Array Length :" + i.length);
+        int[] j = {1,2,3,4,5,6};
+        System.out.println(j.length);
+        char[] c = {'a','b','{'};
+        System.out.println(c.length);
 
         List<Integer> linkedList = new LinkedList<>();
         linkedList.add(1);
