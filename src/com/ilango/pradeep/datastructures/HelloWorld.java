@@ -1,5 +1,7 @@
 package com.ilango.pradeep.datastructures;
 
+import sun.plugin.javascript.navig.Link;
+
 import java.util.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -56,6 +58,20 @@ public class HelloWorld {
         System.out.println(stack.pop());
         System.out.println(stack.pop());
         System.out.println(stack.empty());
+
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(3);
+        queue.add(5);
+        queue.add(7);
+        Iterator iterator = queue.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+        queue.remove();
+        iterator = queue.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
     }
 
     public static Object test(Object a) {
