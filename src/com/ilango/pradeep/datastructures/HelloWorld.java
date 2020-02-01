@@ -1,22 +1,29 @@
 package com.ilango.pradeep.datastructures;
 
+import java.util.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Stack;
 
 public class HelloWorld {
     public static void main(String [] args) {
         System.out.println("Hello World");
 
-        List<Integer> list = new ArrayList<>(5);
+        List<Integer> list = new ArrayList<>(50);
         list.add(1);
         list.add(2);
         list.get(0);
         list.remove(0);
         list.remove(new Integer(2));
         list.add(0, 2);
+        list.add(50);
         System.out.println(list.size());
+
+        System.out.println("ArrayList:");
+        Iterator<Integer> it = list.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
 
         int[] i = new int[5];
         i[0] = 1;
@@ -33,7 +40,10 @@ public class HelloWorld {
         linkedList.add(4);
         linkedList.add(5);
         linkedList.add(1,4);
-        linkedList.clear();
+        Iterator it1 = linkedList.iterator();
+        while (it1.hasNext()) {
+            System.out.println(it1.next());
+        }
         System.out.println(linkedList.size());
         Object a = new Object();
         a = test(a);
