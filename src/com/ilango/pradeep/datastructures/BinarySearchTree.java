@@ -154,6 +154,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
     public void inorderTraversal() {
         if (root == null) {
             System.out.println("Tree is Empty");
+            return;
         }
         System.out.println("Inorder Traversal: ");
         inorderTraversal(root);
@@ -165,6 +166,90 @@ public class BinarySearchTree<E extends Comparable<E>> {
             System.out.println(root.data);
             preorderTraversal(root.right);
         }
+    }
+
+    public boolean isBst(E min, E max) {
+        return isBst(root, min, max);
+    }
+
+    private boolean isBst(Node<E> root, E min, E max) {
+        if (root == null) return true;
+        if (root.data.compareTo(min) <= 0) {
+            return false;
+        }
+        if (root.data.compareTo(max) > 0) {
+            return false;
+        }
+        if (!isBst(root.left, min, root.data)) {
+            return false;
+        }
+        if ( !isBst(root.right, root.data, max)) {
+            return false;
+        }
+        return true;
+    }
+
+    public void delete(E data) {
+         root = delete(root, data);
+    }
+
+    private Node<E> delete(Node<E> root, E data) {
+        if (root == null) {
+            return null;
+        }
+        if (data.compareTo(root.data) < 0){
+            root.left = delete(root.left, data);
+        } else if (data.compareTo(root.data) >0) {
+            root.right = delete(root.right, data);
+        } else {
+            if (root.left == null) {
+                root = root.right;
+            } else if (root.right == null) {
+                root = root.left;
+            } else {
+                Node<E> node = findMax(root.left);
+                root.data = node.data;
+                root.left = delete(root.left, root.data);
+            }
+        }
+        return root;
+    }
+
+    private Node<E> findMax(Node<E> root) {
+        while (root.right != null) {
+            root = root.right;
+        }
+        return root;
+    }
+
+    public E getSuccessor(E data) {
+        Node<E> ancestor = root;
+        Node<E> successor = null;
+        while (ancestor != null) {
+            if (data.compareTo(ancestor.data) < 0) {
+                successor = ancestor;
+                ancestor = ancestor.left;
+            } else if (data.compareTo(ancestor.data) > 0) {
+                ancestor = ancestor.right;
+            } else {
+                if (ancestor.right == null) {
+                    if (successor != null) {
+                        return successor.data;
+                    }
+                    return (E) new Integer(-1);
+                } else {
+                    ancestor = ancestor.right;
+                    while (ancestor.left != null) {
+                        ancestor = ancestor.left;
+                    }
+                    return  ancestor.data;
+                }
+            }
+        }
+        if (successor != null) {
+            return successor.data;
+        }
+        return (E) new Integer(-1);
     }
 
     public static void main(String[] args) {
@@ -194,5 +279,13 @@ public class BinarySearchTree<E extends Comparable<E>> {
         tree.preorderTraversal();
         tree.postorderTraversal();
         tree.inorderTraversal();
+        System.out.println("BST Tree: " + tree.isBst(Integer.MIN_VALUE, Integer.MAX_VALUE));
+        tree.delete(5);
+        tree.inorderTraversal();
+        System.out.println("Successor: " + tree.getSuccessor(5));
+        System.out.println("Successor: " + tree.getSuccessor(50));
+        System.out.println("Successor: " + tree.getSuccessor(55));
+        System.out.println("Successor: " + tree.getSuccessor(2));
+        System.out.println("Successor: " + tree.getSuccessor(3));
     }
 }
