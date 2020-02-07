@@ -72,6 +72,7 @@ public class HelloWorld {
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
+
     }
 
     public static Object test(Object a) {
